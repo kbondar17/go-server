@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+
+option go_package = "./package";
+
+
+package v1;
+
+service ApiV1 {
+    rpc GetAll(GetAllRequest) returns (GetAllResponse);
+    rpc GetByBrand(GetByBrandRequest) returns (GetByBrandResponse);
+}
+
+message GetAllRequest {
+}
+
+message GetAllResponse {
+    repeated Car cars = 1;
+}
+
+message GetByBrandRequest {
+    string brand = 1;
+}
+
+message GetByBrandResponse {
+    repeated Car cars = 1;
+}
+
+message Car {
+    string	ID = 1;   
+	string Name = 2;
+	string Brand = 3;
+
+}
